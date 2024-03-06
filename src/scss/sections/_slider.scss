@@ -1,0 +1,22 @@
+/* Simplified CSS */
+.screenshots-slider {
+    display: flex;
+    overflow-x: scroll; /* Enable horizontal scrolling */
+    overflow-y: hidden; /* Hide vertical scrollbar */
+    gap: 10px;
+    padding: 20px 0;
+}
+.screenshot-item {
+    flex: 0 0 auto;
+    margin-right: 10px; /* Adjust spacing between items */
+    transition: transform 0.2s ease-in-out; /* Smooth transition for transform */
+}
+.screenshot-item img {
+    border-radius: 10px; /* Rounded edges for images */
+    width: auto; /* Adjust width as needed */
+    max-height: 600px; /* Adjust maximum height to fit within the container */
+    object-fit: cover; /* Ensure images cover the area without distortion */
+}
+.screenshot-item:hover {
+    transform: scale(1.05); /* Subtle enlarge effect on hover */
+}

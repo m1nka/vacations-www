@@ -29,16 +29,16 @@ html(lang='en')
         // Navigation
         nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top.shadow-sm
             .container.px-5
-                a.navbar-brand.fw-bold(href='#page-top') Start Bootstrap
+                a.navbar-brand.fw-bold(href='#page-top') Mehr Urlaub
                 button.navbar-toggler(type='button', data-bs-toggle='collapse', data-bs-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
                     | Menu
                     i.bi-list
                 #navbarResponsive.collapse.navbar-collapse
                     ul.navbar-nav.ms-auto.me-4.my-3.my-lg-0
                         li.nav-item
-                            a.nav-link.me-lg-3(href='#features') Features
+                            a.nav-link.me-lg-3(href='#screenshots') Screenshots
                         li.nav-item
-                            a.nav-link.me-lg-3(href='#download') Download
+                            a.nav-link.me-lg-3(href='#features') Features
                     button.btn.btn-primary.rounded-pill.px-3.mb-2.mb-lg-0(data-bs-toggle='modal', data-bs-target='#feedbackModal')
                         span.d-flex.align-items-center
                             i.bi-chat-text-fill.me-2
@@ -51,8 +51,11 @@ html(lang='en')
                     .col-lg-6
                         // Mashead text and app badges
                         .mb-5.mb-lg-0.text-center.text-lg-start
-                            h1.display-1.lh-1.mb-3 Showcase your app beautifully.
-                            p.lead.fw-normal.text-muted.mb-5 Launch your mobile app landing page faster with this free, open source theme from Start Bootstrap!
+                            h3.display-1.lh-1.mb-3
+                                | Clever planen,
+                                br
+                                | mehr reisen
+                            p.lead.fw-normal.text-muted.mb-5 Nutze Feiertage und Wochenenden perfekt aus um deine Urlaubszeit zu maximieren.
                             .d-flex.flex-column.flex-lg-row.align-items-center
                                 a.me-lg-3.mb-4.mb-lg-0(href='#!')
                                     img.app-badge(src='assets/img/google-play-badge.svg', alt='...')
@@ -72,15 +75,27 @@ html(lang='en')
                                         // * * Set the max width of your media to 100% and the height to
                                         // * * 100% like the demo example below.
                                         video(muted='muted', autoplay='', loop='', style='max-width: 100%; height: 100%;')
-                                            source(src='assets/img/demo-screen.mp4', type='video/mp4')
+                                            source(src='assets/img/preview.mp4', type='video/mp4')
 
         // Quote/testimonial aside
         aside.text-center.bg-gradient-primary-to-secondary
             .container.px-5
                 .row.gx-5.justify-content-center
                     .col-xl-8
-                        .h2.fs-1.text-white.mb-4 "An intuitive solution to a common problem that we all face, wrapped up in a single app!"
-                        img(src='assets/img/tnw-logo.svg', alt='...', style='height: 3rem;')
+                        .h2.fs-1.text-white.mb-4 Kostenfrei und ganz ohne Werbung.
+                        script(type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="maximilian.tech" data-color="#d5d5d5" data-emoji="☕" data-font="Bree" data-text="Gib mir einen Kaffee aus&nbsp;&nbsp;&nbsp;" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#FFDD00" )
+
+
+        // Screenshots section
+        section#screenshots
+            .container.px-5
+                .row.justify-content-center
+                    .col-12
+                        .screenshots-slider.overflow-auto
+                            .d-flex.flex-row
+                                each val, index in [0, 1, 2, 3, 4]
+                                    .screenshot-item.mx-2
+                                        img(src=`assets/img/Hotpot ${index}.png`, alt=`Screenshot ${index}`, style='max-width: 100%; height: auto;')
 
         // App features section
         section#features
@@ -92,28 +107,28 @@ html(lang='en')
                                 .col-md-6.mb-5
                                     // Feature item
                                     .text-center
-                                        i.bi-phone.icon-feature.text-gradient.d-block.mb-3
-                                        h3.font-alt Device Mockups
-                                        p.text-muted.mb-0 Ready to use HTML/CSS device mockups, no Photoshop required!
+                                        i.bi-calendar-check.icon-feature.text-gradient.d-block.mb-3
+                                        h3.font-alt Ideale Urlaubszeiten
+                                        p.text-muted.mb-0 Mit Feiertagen und Brückentagen deine Urlaubszeit maximieren
                                 .col-md-6.mb-5
                                     // Feature item
                                     .text-center
-                                        i.bi-camera.icon-feature.text-gradient.d-block.mb-3
-                                        h3.font-alt Flexible Use
-                                        p.text-muted.mb-0 Put an image, video, animation, or anything else in the screen!
+                                        i.bi-calendar2-week.icon-feature.text-gradient.d-block.mb-3
+                                        h3.font-alt Urlaubskonto verwalten
+                                        p.text-muted.mb-0 Plane und verwalte dein Urlaubskonto mit dem Kalender
                             .row
                                 .col-md-6.mb-5.mb-md-0
                                     // Feature item
                                     .text-center
-                                        i.bi-gift.icon-feature.text-gradient.d-block.mb-3
-                                        h3.font-alt Free to Use
-                                        p.text-muted.mb-0 As always, this theme is free to download and use for any purpose!
+                                        i.bi-hourglass-split.icon-feature.text-gradient.d-block.mb-3
+                                        h3.font-alt Urlaubs-Countdown
+                                        p.text-muted.mb-0 Du kannst es nicht erwarten? Zähle runter bis zum nächsten Urlaub
                                 .col-md-6
                                     // Feature item
                                     .text-center
-                                        i.bi-patch-check.icon-feature.text-gradient.d-block.mb-3
-                                        h3.font-alt Open Source
-                                        p.text-muted.mb-0 Since this theme is MIT licensed, you can use it commercially!
+                                        i.bi-phone.icon-feature.text-gradient.d-block.mb-3
+                                        h3.font-alt Dark Mode
+                                        p.text-muted.mb-0 Damit die Urlaubsplanung kein Stress für deine Augen wird
                     .col-lg-4.order-lg-0
                         // Features section device mockup
                         .features-device-mockup
@@ -128,7 +143,7 @@ html(lang='en')
                                         // * * Set the max width of your media to 100% and the height to
                                         // * * 100% like the demo example below.
                                         video(muted='muted', autoplay='', loop='', style='max-width: 100%; height: 100%;')
-                                            source(src='assets/img/demo-screen.mp4', type='video/mp4')
+                                            source(src='assets/img/preview.mp4', type='video/mp4')
 
         // Basic features section
         section.bg-light
@@ -142,14 +157,14 @@ html(lang='en')
                             img.img-fluid.rounded-circle(src='https://source.unsplash.com/u8Jn2rzYIps/900x900', alt='...')
 
         // Call to action section
-        section.cta
-            .cta-content
-                .container.px-5
-                    h2.text-white.display-1.lh-1.mb-4
-                        | Stop waiting.
-                        br
-                        | Start building.
-                    a.btn.btn-outline-light.py-3.px-4.rounded-pill(href='https://startbootstrap.com/theme/new-age', target='_blank') Download for free
+        //- section.cta
+        //-     .cta-content
+        //-         .container.px-5
+        //-             h2.text-white.display-1.lh-1.mb-4
+        //-                 | Stop waiting.
+        //-                 br
+        //-                 | Start building.
+        //-             a.btn.btn-outline-light.py-3.px-4.rounded-pill(href='https://startbootstrap.com/theme/new-age', target='_blank') Download for free
 
         // App badge section
         section#download.bg-gradient-primary-to-secondary
@@ -165,12 +180,12 @@ html(lang='en')
         footer.bg-black.text-center.py-5
             .container.px-5
                 .text-white-50.small
-                    .mb-2 &copy; Your Website 2023. All Rights Reserved.
+                    .mb-2 &copy; Mehr Urlaub 2023
                     a(href='#!') Privacy
                     span.mx-1 &middot;
-                    a(href='#!') Terms
-                    span.mx-1 &middot;
-                    a(href='#!') FAQ
+                    a(href='#!') Imprint
+                    //- span.mx-1 &middot;
+                    //- a(href='#!') FAQ
         
         include includes/feedback-modal.pug
 
