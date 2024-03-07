@@ -64,3 +64,12 @@ slider.addEventListener('mousemove', (e) => {
   const walk = (x - startX) * 2; // Scroll-fast
   slider.scrollLeft = scrollLeft - walk;
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  var url = window.location.href;
+  if(url.includes('#feedback') || url.endsWith('/feedback') || url.endsWith('/feedback/')) {
+      var modal = new bootstrap.Modal(document.getElementById('feedbackModal'));
+      modal.show();
+  }
+});
