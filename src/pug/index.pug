@@ -1,14 +1,17 @@
 doctype html
-html(lang='en')
+html(lang='de')
 
     head
 
         meta(charset='utf-8')
         meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
-        meta(name='description', content='')
-        meta(name='author', content='')
+        meta(name='description', content='Mehr Urlaub – der smarte Urlaubsplaner für iOS und Android. Nutze Feiertage und Brückentage optimal aus und maximiere deine freie Zeit.')
+        meta(name='author', content='Maximilian')
+        meta(property='og:title', content='Mehr Urlaub – Clever planen, mehr reisen')
+        meta(property='og:description', content='Maximiere deine Urlaubszeit mit dem smarten Urlaubsplaner für iOS und Android.')
+        meta(property='og:type', content='website')
 
-        title Mehr Urlaub | Urlaubsplaner - App für iOS und Android
+        title Mehr Urlaub | Urlaubsplaner – App für iOS und Android
 
         link(rel='icon', type='image/x-icon', href='assets/favicon.ico')
 
@@ -16,10 +19,9 @@ html(lang='en')
         link(href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css', rel='stylesheet')
 
         // Google fonts
-        link(rel='preconnect', href='https://fonts.gstatic.com')
-        link(href='https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&display=swap', rel='stylesheet')
-        link(href='https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&display=swap', rel='stylesheet')
-        link(href='https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&display=swap', rel='stylesheet')
+        link(rel='preconnect', href='https://fonts.googleapis.com')
+        link(rel='preconnect', href='https://fonts.gstatic.com', crossorigin)
+        link(href='https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Kanit:ital,wght@0,400;0,600;1,400&display=swap', rel='stylesheet')
 
         // Core theme CSS (includes Bootstrap)
         link(href='css/styles.css', rel='stylesheet')
@@ -27,44 +29,45 @@ html(lang='en')
     body#page-top
 
         // Navigation
-        nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top.shadow-sm
+        nav#mainNav.navbar.navbar-expand-lg.fixed-top
             .container.px-5
-                img(src='assets/img/logo.svg', style='height: 50px; width: 50px;')
-                a.navbar-brand.fw-bold(href='#page-top', style='padding-left:10px; font-size:135%') Mehr Urlaub
-                //- .navbar-brand.fw-bold(href='#page-top', style='display: inline-block; width: 100px; white-space: normal; text-align: left;line-height: 1.1;padding-left:10px;') Mehr Urlaub
+                .d-flex.align-items-center
+                    img(src='assets/img/logo.svg', style='height: 36px; width: 36px;', alt='Mehr Urlaub Logo')
+                    a.navbar-brand.ms-2(href='#page-top') Mehr Urlaub
                 button.navbar-toggler(type='button', data-bs-toggle='collapse', data-bs-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
                     | Menu
-                    i.bi-list
+                    i.bi-list.ms-1
                 #navbarResponsive.collapse.navbar-collapse
                     ul.navbar-nav.ms-auto.me-4.my-3.my-lg-0
                         li.nav-item
-                            a.nav-link.me-lg-3(href='#screenshots') Screenshots
+                            a.nav-link.me-lg-2(href='#screenshots') Screenshots
                         li.nav-item
-                            a.nav-link.me-lg-3(href='#features') Features
+                            a.nav-link.me-lg-2(href='#features') Features
                     button.btn.btn-primary.rounded-pill.px-3.mb-2.mb-lg-0(data-bs-toggle='modal', data-bs-target='#feedbackModal')
                         span.d-flex.align-items-center
                             i.bi-chat-text-fill.me-2
-                            span.small Send Feedback
+                            span.small Feedback
 
-        // Mashead header
+        // Hero / Masthead
         header.masthead
             .container.px-5
                 .row.gx-5.align-items-center
-                    .col-lg-6
-                        // Mashead text and app badges
-                        .mb-5.mb-lg-0.text-center.text-lg-start
-                            h3.font-alt.display-3.lh-1.mb-3
+                    .col-lg-6.order-lg-1
+                        // Hero text
+                        .masthead-text.mb-5.mb-lg-0.text-center.text-lg-start
+                            .hero-overline ✨ Kostenlos &amp; werbefrei
+                            h1.font-alt
                                 | Clever planen,
                                 br
                                 | mehr reisen
-                            p.lead.fw-normal.text-muted.mb-5 Nutze Feiertage und Wochenenden perfekt aus um deine Urlaubszeit zu maximieren.
-                            .d-flex.flex-column.flex-lg-row.align-items-center
-                                a.me-lg-3.mb-4.mb-lg-0(href='#!')
-                                    img.app-badge(src='assets/img/google-play-badge.svg', alt='...')
+                            p.lead Nutze Feiertage und Wochenenden perfekt aus – maximiere deine Urlaubszeit mit einem Klick.
+                            .d-flex.flex-column.flex-lg-row.align-items-center.align-items-lg-start.gap-3
                                 a(href='#!')
-                                    img.app-badge(src='assets/img/app-store-badge.svg', alt='...')
-                    .col-lg-6
-                        // Masthead device mockup feature
+                                    img.app-badge(src='assets/img/google-play-badge.svg', alt='Jetzt bei Google Play')
+                                a(href='#!')
+                                    img.app-badge(src='assets/img/app-store-badge.svg', alt='Laden im App Store')
+                    .col-lg-6.order-lg-2
+                        // Device mockup
                         .masthead-device-mockup
                             include includes/gradient-circle
                             include includes/shape-1
@@ -72,70 +75,68 @@ html(lang='en')
                             .device-wrapper
                                 .device(data-device='iPhoneX', data-orientation='portrait', data-color='black')
                                     .screen.bg-white
-                                        // PUT CONTENTS HERE:
-                                        // * * This can be a video, image, or just about anything else.
-                                        // * * Set the max width of your media to 100% and the height to
-                                        // * * 100% like the demo example below.
-                                        video(muted='muted', autoplay='', loop='', style='max-width: 100%; height: 100%;')
+                                        video(muted='muted', autoplay='', loop='', playsinline='', style='max-width: 100%; height: 100%;')
                                             source(src='assets/img/preview.mp4', type='video/mp4')
 
-        // Quote/testimonial aside
-        aside.text-center.bg-gradient-primary-to-secondary
+        // Support / Buy Me a Coffee section
+        aside.support-section
             .container.px-5
-                .row.gx-5.justify-content-center
-                    .col-xl-8
-                        .h2.font-alt.fs-1.text-white.mb-4 Kostenfrei und ohne Werbung.
-                        script(type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="maximilian.tech" data-color="#f2f2f2" data-emoji="☕" data-font="Bree" data-text="Kaffee ausgeben&nbsp;&nbsp;&nbsp;" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#FFDD00" )
-                        p.text-white.pt-4 Magst Du die App unterstützen? Gib mir einen Kaffee aus :-) 
-
+                .row.justify-content-center
+                    .col-xl-7
+                        p.support-headline Kostenfrei und ohne Werbung.
+                        p.support-sub Magst du die App unterstützen? Gib mir einen Kaffee aus :-)
+                        script(type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="maximilian.tech" data-color="#f2f2f2" data-emoji="☕" data-font="Bree" data-text="Kaffee ausgeben   " data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#FFDD00")
 
         // Screenshots section
         section#screenshots
             .container.px-5
-                .row.justify-content-center
-                    .col-12
-                        .screenshots-slider.overflow-auto
-                            .d-flex.flex-row
-                                each val, index in [0, 1, 2, 3, 4]
-                                    .screenshot-item.mx-2
-                                        img(src=`assets/img/Hotpot ${index}.webp`, alt=`Screenshot ${index}`, style='max-width: 100%; height: auto; draggable="false"')
-                        p.text-secondary.float-end Created with #[a(href='https://hotpot.ai' style='text-decoration: none; color: inherit;' target="_blank") hotpot.ai] &hearts;
+                .screenshots-intro
+                    span.section-label Screenshots
+                    h2.section-heading Die App im Überblick
+                    .section-divider
+                .screenshots-wrapper
+                    .screenshots-slider
+                        each val, index in [0, 1, 2, 3, 4]
+                            .screenshot-item
+                                img(src=`assets/img/Hotpot ${index}.webp`, alt=`App Screenshot ${index + 1}`, draggable='false')
+                .p.screenshots-attribution Created with #[a(href='https://hotpot.ai', target='_blank', rel='noopener') hotpot.ai] ♥
 
-
-        // App features section
+        // Features section
         section#features
             .container.px-5
                 .row.gx-5.align-items-center
+                    // Feature grid
                     .col-lg-8.order-lg-1.mb-5.mb-lg-0
-                        .container-fluid.px-5
-                            .row.gx-5
-                                .col-md-6.mb-5
-                                    // Feature item
-                                    .text-center
-                                        i.bi-calendar-check.icon-feature.text-gradient.d-block.mb-3
-                                        h3.font-alt Ideale Urlaubszeiten
-                                        p.text-muted.mb-0 Mit Feiertagen und Brückentagen deine Urlaubszeit maximieren
-                                .col-md-6.mb-5
-                                    // Feature item
-                                    .text-center
-                                        i.bi-calendar2-week.icon-feature.text-gradient.d-block.mb-3
-                                        h3.font-alt Urlaubskonto verwalten
-                                        p.text-muted.mb-0 Plane und verwalte dein Urlaubskonto mit dem Kalender
-                            .row
-                                .col-md-6.mb-5.mb-md-0
-                                    // Feature item
-                                    .text-center
-                                        i.bi-hourglass-split.icon-feature.text-gradient.d-block.mb-3
-                                        h3.font-alt Urlaubs-Countdown
-                                        p.text-muted.mb-0 Du kannst es nicht erwarten? Zähle runter bis zum nächsten Urlaub
-                                .col-md-6
-                                    // Feature item
-                                    .text-center
-                                        i.bi-phone.icon-feature.text-gradient.d-block.mb-3
-                                        h3.font-alt Dark Mode
-                                        p.text-muted.mb-0 Damit die Urlaubsplanung kein Stress für deine Augen wird
+                        .section-intro.mb-5
+                            span.section-label Features
+                            h2.section-heading Alles, was du brauchst
+                        .row.g-4
+                            .col-md-6
+                                .feature-card
+                                    .feature-icon-wrap
+                                        i.bi-calendar-check
+                                    h3 Ideale Urlaubszeiten
+                                    p Mit Feiertagen und Brückentagen deine Urlaubszeit maximieren
+                            .col-md-6
+                                .feature-card
+                                    .feature-icon-wrap
+                                        i.bi-calendar2-week
+                                    h3 Urlaubskonto verwalten
+                                    p Plane und verwalte dein Urlaubskonto mit dem integrierten Kalender
+                            .col-md-6
+                                .feature-card
+                                    .feature-icon-wrap
+                                        i.bi-hourglass-split
+                                    h3 Urlaubs-Countdown
+                                    p Du kannst es nicht erwarten? Zähle runter bis zum nächsten Urlaub
+                            .col-md-6
+                                .feature-card
+                                    .feature-icon-wrap
+                                        i.bi-phone
+                                    h3 Dark Mode
+                                    p Damit die Urlaubsplanung kein Stress für deine Augen wird
+                    // Features device mockup
                     .col-lg-4.order-lg-0
-                        // Features section device mockup
                         .features-device-mockup
                             include includes/gradient-circle
                             include includes/shape-1
@@ -143,55 +144,35 @@ html(lang='en')
                             .device-wrapper
                                 .device(data-device='iPhoneX', data-orientation='portrait', data-color='black')
                                     .screen.bg-white
-                                        // PUT CONTENTS HERE:
-                                        // * * This can be a video, image, or just about anything else.
-                                        // * * Set the max width of your media to 100% and the height to
-                                        // * * 100% like the demo example below.
-                                        video(muted='muted', autoplay='', loop='', style='max-width: 100%; height: 100%;')
+                                        video(muted='muted', autoplay='', loop='', playsinline='', style='max-width: 100%; height: 100%;')
                                             source(src='assets/img/preview.mp4', type='video/mp4')
 
-        // Basic features section
-        //- section.bg-light
-        //-     .container.px-5
-        //-         .row.gx-5.align-items-center.justify-content-center.justify-content-lg-between
-        //-             .col-12.col-lg-5
-        //-                 h2.display-4.lh-1.mb-4 Enter a new age of web design
-        //-                 p.lead.fw-normal.text-muted.mb-5.mb-lg-0 This section is perfect for featuring some information about your application, why it was built, the problem it solves, or anything else! There's plenty of space for text here, so don't worry about writing too much.
-        //-             .col-sm-8.col-md-6
-        //-                 .px-5.px-sm-0
-        //-                     img.img-fluid.rounded-circle(src='https://source.unsplash.com/u8Jn2rzYIps/900x900', alt='...')
-
-        // Call to action section
-        //- section.cta
-        //-     .cta-content
-        //-         .container.px-5
-        //-             h2.text-white.display-1.lh-1.mb-4
-        //-                 | Stop waiting.
-        //-                 br
-        //-                 | Start building.
-        //-             a.btn.btn-outline-light.py-3.px-4.rounded-pill(href='https://startbootstrap.com/theme/new-age', target='_blank') Download for free
-
-        // App badge section
-        section#download.bg-gradient-primary-to-secondary
+        // Download CTA section
+        section#download
             .container.px-5
-                h2.text-center.text-white.font-alt.mb-4 Jetzt installieren!
-                .d-flex.flex-column.flex-lg-row.align-items-center.justify-content-center
-                    a.me-lg-3.mb-4.mb-lg-0(href='#!')
-                        img.app-badge(src='assets/img/google-play-badge.svg', alt='...')
-                    a(href='#!')
-                        img.app-badge(src='assets/img/app-store-badge.svg', alt='...')
+                .row.justify-content-center
+                    .col-lg-8.text-center
+                        span.section-label Jetzt kostenlos
+                        h2.download-headline Starte deinen Traumurlaub
+                        p.download-sub Optimiere deine freien Tage – kostenlos, ohne Werbung, für iOS und Android.
+                        .d-flex.flex-column.flex-sm-row.align-items-center.justify-content-center.gap-3
+                            a(href='#!')
+                                img.app-badge(src='assets/img/google-play-badge.svg', alt='Jetzt bei Google Play')
+                            a(href='#!')
+                                img.app-badge(src='assets/img/app-store-badge.svg', alt='Laden im App Store')
 
         // Footer
-        footer.bg-black.text-center.py-5
+        footer
             .container.px-5
-                .text-white-50.small
-                    .mb-2
-                    span &copy; Mehr Urlaub
-                    span.mx-1 &middot;
-                    a(data-bs-toggle='modal', data-bs-target='#imprintModal', href='#!') Privacy & Imprint
-                    //- span.mx-1 &middot;
-                    //- a(href='#!') FAQ
-        
+                .d-flex.flex-column.flex-sm-row.align-items-center.justify-content-between.gap-3
+                    .d-flex.align-items-center.gap-2
+                        img(src='assets/img/logo.svg', style='height: 28px; width: 28px; opacity: 0.7;', alt='Logo')
+                        span.footer-logo-brand Mehr Urlaub
+                    .footer-legal
+                        span &copy; Mehr Urlaub
+                        span.separator ·
+                        a(data-bs-toggle='modal', data-bs-target='#imprintModal', href='#!') Impressum &amp; Datenschutz
+
         include includes/feedback-modal.pug
         include includes/imprint-modal.pug
 
@@ -200,10 +181,3 @@ html(lang='en')
 
         // Core theme JS
         script(src='js/scripts.js')
-
-        // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-        // * *                               SB Forms JS                               * *
-        // * * Activate your form at https://startbootstrap.com/solution/contact-forms * *
-        // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-        //- script(src='https://cdn.startbootstrap.com/sb-forms-latest.js')

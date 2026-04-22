@@ -11,9 +11,22 @@ window.addEventListener('DOMContentLoaded', event => {
             target: '#mainNav',
             offset: 74,
         });
-    };
+    }
 
-    // Collapse responsive navbar when toggler is visible
+    // Navbar scroll class for glass effect
+    if (mainNav) {
+        const onScroll = () => {
+            if (window.scrollY > 10) {
+                mainNav.classList.add('navbar-scrolled');
+            } else {
+                mainNav.classList.remove('navbar-scrolled');
+            }
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll(); // run once on load
+    }
+
+    // Collapse responsive navbar when a nav link is clicked
     const navbarToggler = document.body.querySelector('.navbar-toggler');
     const responsiveNavItems = [].slice.call(
         document.querySelectorAll('#navbarResponsive .nav-link')
@@ -26,50 +39,54 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
+    // Open feedback modal from URL hash
+    var url = window.location.href;
+    if (url.includes('#feedback') || url.endsWith('/feedback') || url.endsWith('/feedback/')) {
+        var feedbackModalEl = document.getElementById('feedbackModal');
+        if (feedbackModalEl) {
+            var modal = new bootstrap.Modal(feedbackModalEl);
+            modal.show();
+        }
+    }
+
 });
 
-let isDown = false;
-let startX;
-let scrollLeft;
+// Screenshots slider — drag to scroll
+(function () {
+    const slider = document.querySelector('.screenshots-slider');
+    if (!slider) return;
 
-const slider = document.querySelector('.screenshots-slider');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
 
-document.querySelectorAll('.screenshots-slider img').forEach(img => {
-    img.addEventListener('dragstart', e => {
-      e.preventDefault();
+    // Prevent drag on images
+    document.querySelectorAll('.screenshots-slider img').forEach(img => {
+        img.addEventListener('dragstart', e => e.preventDefault());
     });
-  });
 
-slider.addEventListener('mousedown', (e) => {
-  isDown = true;
-  slider.classList.add('active');
-  startX = e.pageX - slider.offsetLeft;
-  scrollLeft = slider.scrollLeft;
-});
+    slider.addEventListener('mousedown', (e) => {
+        isDown = true;
+        slider.classList.add('active');
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+    });
 
-slider.addEventListener('mouseleave', () => {
-  isDown = false;
-  slider.classList.remove('active');
-});
+    slider.addEventListener('mouseleave', () => {
+        isDown = false;
+        slider.classList.remove('active');
+    });
 
-slider.addEventListener('mouseup', () => {
-  isDown = false;
-  slider.classList.remove('active');
-});
+    slider.addEventListener('mouseup', () => {
+        isDown = false;
+        slider.classList.remove('active');
+    });
 
-slider.addEventListener('mousemove', (e) => {
-  if (!isDown) return;
-  e.preventDefault();
-  const x = e.pageX - slider.offsetLeft;
-  const walk = (x - startX) * 2; // Scroll-fast
-  slider.scrollLeft = scrollLeft - walk;
-});
-
-
-document.addEventListener('DOMContentLoaded', function() {
-  var url = window.location.href;
-  if(url.includes('#feedback') || url.endsWith('/feedback') || url.endsWith('/feedback/')) {
-      var modal = new bootstrap.Modal(document.getElementById('feedbackModal'));
-      modal.show();
-  }
-});
+    slider.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 2;
+        slider.scrollLeft = scrollLeft - walk;
+    });
+})();

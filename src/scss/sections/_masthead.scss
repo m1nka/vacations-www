@@ -1,26 +1,97 @@
 // 
-// Masthead
+// Masthead / Hero
 // 
 
 .masthead {
-    background-color: $gray-100;
-    // Set top padding to 5rem plus the height of the fixed navbar
+    background-color: $white;
     padding-top: 5rem + 4.5rem;
     padding-bottom: 5rem;
+    position: relative;
+    overflow: hidden;
 
-    // Styling for the iPhone X mockup in the masthead
+    // Decorative background blobs
+    &::before {
+        content: '';
+        position: absolute;
+        top: -20%;
+        right: -10%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(ellipse, rgba($primary, 0.12) 0%, transparent 65%);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -15%;
+        left: -5%;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(ellipse, rgba($secondary, 0.09) 0%, transparent 65%);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .container {
+        position: relative;
+        z-index: 1;
+    }
+
+    // Hero text area
+    .masthead-text {
+        .hero-overline {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba($primary, 0.08);
+            border: 1px solid rgba($primary, 0.14);
+            color: $primary;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            margin-bottom: 1.5rem;
+        }
+
+        h1, h2, h3 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            color: $gray-900;
+            margin-bottom: 1.25rem;
+        }
+
+        .lead {
+            font-size: 1.15rem;
+            color: $gray-600;
+            font-weight: 500;
+            line-height: 1.65;
+            max-width: 42ch;
+            margin-bottom: 2.5rem;
+        }
+    }
+
+    // iPhone device mockup wrapper
     .masthead-device-mockup {
         display: flex;
         align-items: center;
         justify-content: center;
         position: relative;
 
-        // SVG that sits behind the phone mockup
+        // Gradient circle behind phone
         .circle {
             position: absolute;
             fill: url(#circleGradient);
             width: 70%;
             display: none;
+            opacity: 0.35;
 
             .gradient-start-color {
                 stop-color: $primary;
@@ -31,99 +102,74 @@
             }
         }
 
-        // First shape to the bottom left of the mockup
+        // Decorative floating shapes
         .shape-1 {
             position: absolute;
-            height: 1rem;
-            width: 1rem;
+            height: 1.1rem;
+            width: 1.1rem;
             transform: rotate(-10deg);
             fill: $primary;
-
+            opacity: 0.5;
             bottom: 15%;
             left: 10%;
         }
 
-        // Second shape to the top right of the mockup
         .shape-2 {
             position: absolute;
-            height: 0.75rem;
-            width: 0.75rem;
-            fill: $primary;
-
+            height: 0.85rem;
+            width: 0.85rem;
+            fill: $secondary;
+            opacity: 0.5;
             top: 15%;
             right: 10%;
         }
 
-        // Set a max width for the device mockup on smallest screen sizes
+        // Phone glow effect
         .device-wrapper {
             max-width: 10rem;
+            filter: drop-shadow(0 24px 48px rgba($primary, 0.28)) drop-shadow(0 8px 16px rgba(0,0,0,0.12));
         }
     }
 
-    // Sizing for the device and SVG background circle (sm screen size breakpoint)
+    // Responsive sizing
+
     @include media-breakpoint-up(sm) {
         .masthead-device-mockup {
             .circle {
                 width: 70%;
                 display: block;
             }
-
             .device-wrapper {
                 max-width: 12.5rem;
             }
         }
     }
 
-    // Sizing for the device and SVG background circle (md screen size breakpoint)
     @include media-breakpoint-up(md) {
         .masthead-device-mockup {
-            .circle {
-                width: 60%;
-            }
-
-            .device-wrapper {
-                max-width: 15rem;
-            }
+            .circle { width: 60%; }
+            .device-wrapper { max-width: 15rem; }
         }
     }
 
-    // Sizing for the device and SVG background circle (lg screen size breakpoint)
     @include media-breakpoint-up(lg) {
         .masthead-device-mockup {
-            .circle {
-                width: 90%;
-            }
-
-            .device-wrapper {
-                max-width: 15rem;
-            }
+            .circle { width: 85%; }
+            .device-wrapper { max-width: 16rem; }
         }
     }
 
-    // Sizing for the device and SVG background circle (xl screen size breakpoint)
     @include media-breakpoint-up(xl) {
         .masthead-device-mockup {
-            .circle {
-                width: 75%;
-            }
-
-            .device-wrapper {
-                max-width: 15rem;
-            }
+            .circle { width: 75%; }
+            .device-wrapper { max-width: 17rem; }
         }
     }
 
-    // Sizing for the device and SVG background circle (xxl screen size breakpoint)
     @include media-breakpoint-up(xxl) {
         .masthead-device-mockup {
-            .circle {
-                width: 70%;
-            }
-
-            .device-wrapper {
-                max-width: 17rem;
-            }
+            .circle { width: 70%; }
+            .device-wrapper { max-width: 19rem; }
         }
     }
-
 }

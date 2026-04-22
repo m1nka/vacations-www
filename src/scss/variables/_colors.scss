@@ -2,12 +2,16 @@
 // Colors
 // 
 
-// Override Bootstrap color systel colors
+// Core brand palette — indigo to violet
+$blue:   #4361EE;
+$purple: #7209B7;
 
-$blue: #4158c0;
-$purple: #a2a7e5;
+// Accent warm color for highlights
+$amber:  #F59E0B;
 
 // Override Bootstrap default state colors
-
-$primary: $blue;
+$primary:   $blue;
 $secondary: $purple;
+
+// Surface colors
+$surface-light: #F5F5FF;   // very light indigo tint

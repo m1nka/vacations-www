@@ -1,26 +1,97 @@
 // 
-// Call to action
+// CTA sections
 // 
 
-section.cta {
+// Support / Buy Me a Coffee section
+.support-section {
+    background: linear-gradient(135deg, #{$primary} 0%, #{$secondary} 100%);
     position: relative;
-    padding: 15rem 0;
-    background-image: url('https://source.unsplash.com/5g41N3uRPf8/1500x800');
-    background-position: center;
-    background-size: cover;
+    overflow: hidden;
+    text-align: center;
 
-    .cta-content {
+    &::before {
+        content: '';
+        position: absolute;
+        top: -40%;
+        right: -10%;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(ellipse, rgba(255,255,255,0.1) 0%, transparent 65%);
+        border-radius: 50%;
+        pointer-events: none;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -30%;
+        left: -5%;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(ellipse, rgba(255,255,255,0.08) 0%, transparent 65%);
+        border-radius: 50%;
+        pointer-events: none;
+    }
+
+    .container {
         position: relative;
         z-index: 1;
     }
 
-    &:before {
+    .support-headline {
+        font-size: clamp(1.5rem, 4vw, 2.25rem);
+        font-weight: 800;
+        color: $white;
+        letter-spacing: -0.02em;
+        margin-bottom: 0.75rem;
+        line-height: 1.2;
+    }
+
+    .support-sub {
+        color: rgba($white, 0.75);
+        font-size: 1rem;
+        font-weight: 500;
+        margin-bottom: 1.75rem;
+        line-height: 1.55;
+    }
+}
+
+// Download CTA section
+#download {
+    background: linear-gradient(135deg, #{$primary} 0%, #{$secondary} 100%);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
         content: '';
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: fade-out($black, 0.5);
+        top: -50%;
+        right: -5%;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(ellipse, rgba(255,255,255,0.08) 0%, transparent 60%);
+        border-radius: 50%;
+        pointer-events: none;
+    }
+
+    .container {
+        position: relative;
+        z-index: 1;
+    }
+
+    .download-headline {
+        font-size: clamp(1.75rem, 4vw, 2.75rem);
+        font-weight: 800;
+        color: $white;
+        letter-spacing: -0.025em;
+        line-height: 1.15;
+        margin-bottom: 0.5rem;
+    }
+
+    .download-sub {
+        color: rgba($white, 0.7);
+        font-size: 1.05rem;
+        font-weight: 500;
+        margin-bottom: 2.5rem;
     }
 }

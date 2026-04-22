@@ -2,13 +2,10 @@
 // Global
 //
 
-// Scroll padding for all scroll targets on page used with
-// native CSS smooth scrolling
-// 
-// https://caniuse.com/?search=scroll-padding
-
+// Smooth scrolling & padding for fixed navbar
 html {
     scroll-padding-top: 4.5rem;
+    scroll-behavior: smooth;
 }
 
 // Custom utilities
@@ -21,8 +18,12 @@ html {
     background-color: $white !important;
 }
 
+.bg-surface {
+    background-color: $surface-light !important;
+}
+
 .bg-gradient-primary-to-secondary {
-    background: linear-gradient(45deg, #{$primary}, #{$secondary}) !important;
+    background: linear-gradient(135deg, #{$primary} 0%, #{$secondary} 100%) !important;
 }
 
 .font-alt {
@@ -34,23 +35,128 @@ html {
 }
 
 .text-gradient {
-    background: -webkit-linear-gradient(#{$primary}, #{$secondary});
+    background: linear-gradient(135deg, #{$primary}, #{$secondary});
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 // Padding for sections
-
 aside,
 section {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
 }
 
-// Set fixed height for app badges
-
+// App store badge height
 .app-badge {
     height: 3rem;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        opacity: 0.9;
+    }
 }
 
+// Modern section label (overline text above headings)
+.section-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $primary;
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+// Section heading style
+.section-heading {
+    font-weight: 800;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: $gray-900;
+    margin-bottom: 1rem;
+}
+
+.section-subheading {
+    font-size: 1.1rem;
+    color: $gray-600;
+    font-weight: 500;
+    line-height: 1.6;
+    max-width: 44ch;
+}
+
+// Feature card
+.feature-card {
+    background: $white;
+    border: 1px solid rgba($primary, 0.08);
+    border-radius: 1.25rem;
+    padding: 2rem 1.75rem;
+    height: 100%;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04), 0 4px 16px rgba(0, 0, 0, 0.04);
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 32px rgba($primary, 0.12), 0 2px 8px rgba(0, 0, 0, 0.04);
+        border-color: rgba($primary, 0.2);
+    }
+
+    .feature-icon-wrap {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 0.875rem;
+        background: linear-gradient(135deg, rgba($primary, 0.1), rgba($secondary, 0.1));
+        margin-bottom: 1.25rem;
+
+        i {
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, #{$primary}, #{$secondary});
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+
+    h3 {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: $gray-900;
+        margin-bottom: 0.5rem;
+        letter-spacing: -0.01em;
+    }
+
+    p {
+        font-size: 0.925rem;
+        color: $gray-600;
+        margin-bottom: 0;
+        line-height: 1.55;
+    }
+}
+
+// Pill badge / tag
+.tag-pill {
+    display: inline-block;
+    padding: 0.3rem 0.875rem;
+    background: rgba($primary, 0.08);
+    color: $primary;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+// Decorative separator
+.section-divider {
+    width: 3rem;
+    height: 3px;
+    background: linear-gradient(90deg, #{$primary}, #{$secondary});
+    border-radius: 100px;
+    margin: 1rem auto 2rem;
+}

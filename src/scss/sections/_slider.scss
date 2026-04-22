@@ -1,22 +1,97 @@
-/* Simplified CSS */
+// 
+// Screenshots slider
+// 
+
+#screenshots {
+    background-color: $white;
+    overflow: hidden;
+
+    .screenshots-intro {
+        max-width: 520px;
+        margin: 0 auto 3rem;
+        text-align: center;
+    }
+}
+
 .screenshots-slider {
     display: flex;
-    overflow-x: scroll; /* Enable horizontal scrolling */
-    overflow-y: hidden; /* Hide vertical scrollbar */
-    gap: 10px;
-    padding: 20px 0;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    gap: 1rem;
+    padding: 1.5rem 0.5rem 2rem;
+    cursor: grab;
+    user-select: none;
+    -webkit-overflow-scrolling: touch;
+
+    // Hide scrollbar but keep functionality
+    scrollbar-width: none; // Firefox
+    &::-webkit-scrollbar {
+        display: none; // Chrome/Safari
+    }
+
+    &.active {
+        cursor: grabbing;
+    }
 }
+
 .screenshot-item {
     flex: 0 0 auto;
-    margin-right: 10px; /* Adjust spacing between items */
-    transition: transform 0.2s ease-in-out; /* Smooth transition for transform */
+    transition: transform 0.25s ease;
+
+    img {
+        border-radius: 1.25rem;
+        width: auto;
+        max-height: 480px;
+        object-fit: cover;
+        display: block;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    &:hover {
+        transform: translateY(-4px) scale(1.02);
+    }
 }
-.screenshot-item img {
-    border-radius: 10px; /* Rounded edges for images */
-    width: auto; /* Adjust width as needed */
-    max-height: 600px; /* Adjust maximum height to fit within the container */
-    object-fit: cover; /* Ensure images cover the area without distortion */
+
+.screenshots-attribution {
+    font-size: 0.8rem;
+    color: $gray-500;
+    text-align: right;
+    margin-top: 0.75rem;
+
+    a {
+        color: $gray-500;
+        text-decoration: none;
+        transition: color 0.2s;
+
+        &:hover {
+            color: $primary;
+        }
+    }
 }
-.screenshot-item:hover {
-    transform: scale(1.05); /* Subtle enlarge effect on hover */
+
+// Fade masks on the edges to indicate more content
+.screenshots-wrapper {
+    position: relative;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 3rem;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    &::before {
+        left: 0;
+        background: linear-gradient(to right, $white, transparent);
+    }
+
+    &::after {
+        right: 0;
+        background: linear-gradient(to left, $white, transparent);
+    }
 }

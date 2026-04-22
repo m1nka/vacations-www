@@ -1,69 +1,111 @@
-# [Start Bootstrap - New Age](https://startbootstrap.com/theme/new-age/)
+# Mehr Urlaub — Landing Page
 
-[New Age](https://startbootstrap.com/theme/new-age/) is a web app landing page theme for [Bootstrap](https://getbootstrap.com/) created by [Start Bootstrap](https://startbootstrap.com/).
+The official landing page for **Mehr Urlaub**, a free vacation planner app for iOS and Android.  
+Maximize your vacation days by intelligently combining public holidays and weekends.
 
-## Preview
+🌐 **Live:** [mehr-urlaub.de](https://mehr-urlaub.de) · [GitHub Pages preview](https://m1nka.github.io/vacations-www/)
 
-[![New Age Preview](https://assets.startbootstrap.com/img/screenshots/themes/new-age.png)](https://startbootstrap.github.io/startbootstrap-new-age/)
+---
 
-**[View Live Preview](https://startbootstrap.github.io/startbootstrap-new-age/)**
+## About the App
 
-## Status
+**Mehr Urlaub** helps you:
+- 📅 Find ideal vacation windows using public holidays and bridge days
+- 🗓️ Manage your vacation balance with an integrated calendar
+- ⏳ Count down to your next trip
+- 🌙 Plan comfortably with full dark mode support
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/StartBootstrap/startbootstrap-new-age/master/LICENSE)
-[![npm version](https://img.shields.io/npm/v/startbootstrap-new-age.svg)](https://www.npmjs.com/package/startbootstrap-new-age)
+Available free, no ads, on iOS and Android.
 
-## Download and Installation
+---
 
-To begin using this template, choose one of the following options to get started:
+## Tech Stack
 
-* [Download the latest release on Start Bootstrap](https://startbootstrap.com/theme/new-age/)
-* Install via npm: `npm i startbootstrap-new-age`
-* Clone the repo: `git clone https://github.com/StartBootstrap/startbootstrap-new-age.git`
-* [Fork, Clone, or Download on GitHub](https://github.com/StartBootstrap/startbootstrap-new-age)
+| Layer | Technology |
+|---|---|
+| Templates | [Pug](https://pugjs.org/) |
+| Styles | [SCSS](https://sass-lang.com/) + [Bootstrap 5](https://getbootstrap.com/) |
+| Fonts | [Mulish](https://fonts.google.com/specimen/Mulish), [Kanit](https://fonts.google.com/specimen/Kanit) (via Google Fonts) |
+| Icons | [Bootstrap Icons](https://icons.getbootstrap.com/) |
+| Build | Node.js scripts (pug, sass, autoprefixer) |
+| Hosting | GitHub Pages via GitHub Actions |
 
-## Usage
+---
 
-### Basic Usage
+## Development
 
-After downloading, simply edit the HTML and CSS files included with `dist` directory. These are the only files you need to worry about, you can ignore everything else! To preview the changes you make to the code, you can open the `index.html` file in your web browser.
+**Prerequisites:** Node.js ≥ 18
 
-### Advanced Usage
+```bash
+# Install dependencies
+npm install
 
-Clone the source files of the theme and navigate into the theme's root directory. Run `npm install` and then run `npm start` which will open up a preview of the template in your default browser, watch for changes to core template files, and live reload the browser when changes are saved. You can view the `package.json` file to see which scripts are included.
+# Start dev server with live reload
+npm start
 
-#### npm Scripts
+# Build for production
+npm run build
+```
 
-* `npm run build` builds the project - this builds assets, HTML, JS, and CSS into `dist`
-* `npm run build:assets` copies the files in the `src/assets/` directory into `dist`
-* `npm run build:pug` compiles the Pug located in the `src/pug/` directory into `dist`
-* `npm run build:scripts` brings the `src/js/scripts.js` file into `dist`
-* `npm run build:scss` compiles the SCSS files located in the `src/scss/` directory into `dist`
-* `npm run clean` deletes the `dist` directory to prepare for rebuilding the project
-* `npm run start:debug` runs the project in debug mode
-* `npm start` or `npm run start` runs the project, launches a live preview in your default browser, and watches for changes made to files in `src`
+Output is written to `dist/`. The GitHub Actions workflow automatically builds and deploys on every push to `main`.
 
-You must have npm installed in order to use this build environment.
+### npm Scripts
 
-## Bugs and Issues
+| Command | Description |
+|---|---|
+| `npm start` | Build + live-reload dev server |
+| `npm run build` | Full production build into `dist/` |
+| `npm run build:pug` | Compile Pug → HTML |
+| `npm run build:scss` | Compile SCSS → CSS |
+| `npm run build:scripts` | Copy JS |
+| `npm run build:assets` | Copy static assets |
+| `npm run clean` | Remove `dist/` |
 
-Have a bug or an issue with this template? [Open a new issue](https://github.com/StartBootstrap/startbootstrap-new-age/issues) here on GitHub or leave a comment on the [template overview page at Start Bootstrap](https://startbootstrap.com/theme/new-age/).
+---
 
-## About
+## Project Structure
 
-Start Bootstrap is an open source library of free Bootstrap templates and themes. All of the free templates and themes on Start Bootstrap are released under the MIT license, which means you can use them for any purpose, even for commercial projects.
+```
+src/
+├── pug/
+│   ├── index.pug           # Main page template
+│   └── includes/           # Reusable Pug partials
+├── scss/
+│   ├── styles.scss          # Entry point
+│   ├── _global.scss         # Utilities & base styles
+│   ├── _variables.scss      # Variable imports
+│   ├── variables/
+│   │   ├── _colors.scss     # Color palette
+│   │   └── _typography.scss # Font settings
+│   ├── components/
+│   │   ├── _navbar.scss
+│   │   └── _device-mockup.scss
+│   └── sections/
+│       ├── _masthead.scss   # Hero section
+│       ├── _features.scss   # Features section
+│       ├── _slider.scss     # Screenshots slider
+│       ├── _cta.scss        # CTA sections
+│       └── _footer.scss
+├── js/
+│   └── scripts.js           # Page interactivity
+└── assets/
+    ├── img/                 # Screenshots, badges, logo
+    └── favicon.ico
+```
 
-* <https://startbootstrap.com>
-* <https://twitter.com/SBootstrap>
+---
 
-Start Bootstrap was created by and is maintained by **[David Miller](https://davidmiller.io/)**.
+## Deployment
 
-* <https://davidmiller.io>
-* <https://twitter.com/davidmillerhere>
-* <https://github.com/davidtmiller>
+Pushes to `main` trigger a GitHub Actions workflow that:
+1. Installs dependencies (`npm ci`)
+2. Runs `npm run build`
+3. Deploys `dist/` to GitHub Pages
 
-Start Bootstrap is based on the [Bootstrap](https://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
+No manual deployment needed.
 
-## Copyright and License
+---
 
-Copyright 2013-2023 Start Bootstrap LLC. Code released under the [MIT](https://github.com/StartBootstrap/startbootstrap-new-age/blob/master/LICENSE) license.
+## License
+
+MIT — see [LICENSE](LICENSE)
